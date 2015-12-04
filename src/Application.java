@@ -5,11 +5,11 @@ import java.io.IOException;
  */
 public class Application {
     public static void main(String[] args){
-        Model m = new Model();
+        /*Model m = new Model();
         try {
-            Window w = new Window(m);
+            MainWindow w = new MainWindow(m);
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 }
