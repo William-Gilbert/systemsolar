@@ -15,8 +15,6 @@ public class Satellite extends Astre {
     }
 
 
-
-
     public Astre getAstreReferent() {
         return astreReferent;
     }

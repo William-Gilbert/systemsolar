@@ -12,4 +12,26 @@ public class Model {
         for(int i=0 ; i < 5 ; i++) listOfAstre.add(null);
         // TODO nom et image
     }
+
+    public List<Astre> getListOfAstre() {
+        return listOfAstre;
+    }
+
+    public void setListOfAstre(List<Astre> listOfAstre) {
+        this.listOfAstre = listOfAstre;
+    }
+
+    public boolean addAstre(Astre a){
+        return listOfAstre.add(a);
+    }
+
+    public boolean removeAstre(Astre a){
+        return listOfAstre.remove(a);
+    }
+
+    public boolean removeAstre(int index){
+        return listOfAstre.remove(index)!=null;
+    }
+
+
 }

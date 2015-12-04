@@ -16,7 +16,6 @@ public abstract class Astre {
         // TODO nom et image
     }
 
-
     public ImageIcon getImage() {
         return image;
     }
@@ -39,6 +38,18 @@ public abstract class Astre {
 
     public void setListOfSatellites(List<Astre> listOfSatellites) {
         this.listOfSatellites = listOfSatellites;
+    }
+
+    public boolean addSatellite(Astre a){
+        return listOfSatellites.add(a);
+    }
+
+    public boolean removeSatellite(Astre a){
+        return listOfSatellites.remove(a);
+    }
+
+    public boolean removeSatellite(int index){
+        return listOfSatellites.remove(index)!=null;
     }
 
 
