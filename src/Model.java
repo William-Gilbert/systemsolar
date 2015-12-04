@@ -9,7 +9,7 @@ public class Model {
 
     public Model(){
         listOfAstre = new ArrayList<Astre>(5);
-        for(int i=0 ; i < 5 ; i++) listOfAstre.set(i,null);
+        for(int i=0 ; i < 5 ; i++) listOfAstre.add(null);
         // TODO nom et image
     }
 }

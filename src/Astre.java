@@ -13,7 +13,7 @@ public abstract class Astre {
 
     public Astre(String nom, String pathImg){
         listOfSatellites = new ArrayList<Astre>(5);
-        for(int i=0 ; i < 5 ; i++) listOfSatellites.set(i,null);
+        for(int i=0 ; i < 5 ; i++) listOfSatellites.add(null);
         // TODO nom et image
     }
 }
