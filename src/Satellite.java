@@ -13,4 +13,41 @@ public class Satellite extends Astre {
         // TODO Initialisation
         // TODO Exception
     }
+
+
+
+
+    public Astre getAstreReferent() {
+        return astreReferent;
+    }
+
+    public void setAstreReferent(Astre astreReferent) {
+        this.astreReferent = astreReferent;
+    }
+
+    public int getDemiGrandAxe() {
+        return demiGrandAxe;
+    }
+
+    public void setDemiGrandAxe(int demiGrandAxe) {
+        this.demiGrandAxe = demiGrandAxe;
+    }
+
+    public int getDemiPetitAxe() {
+        return demiPetitAxe;
+    }
+
+    public void setDemiPetitAxe(int demiPetitAxe) {
+        this.demiPetitAxe = demiPetitAxe;
+    }
+
+    public int getPeriodeRotation() {
+        return periodeRotation;
+    }
+
+    public void setPeriodeRotation(int periodeRotation) {
+        this.periodeRotation = periodeRotation;
+    }
+
+
 }
