@@ -3,7 +3,9 @@ import java.awt.*;
 import java.io.IOException;
 
 /**
- * Created by william on 04/12/2015.
+ * Window est la classe qui permet la création de la fenêtre
+ * @author Gilbert W
+ * @author  Tournoux C
  */
 public class Window extends JFrame {
 
