@@ -17,7 +17,7 @@ public class MyPanel extends JPanel {
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image,0,0,1280,920,null);
+        g.drawImage(image,0,0,1000,700,null);
     }
 
 }

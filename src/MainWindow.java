@@ -12,14 +12,13 @@ public class MainWindow extends JFrame {
 
     public MainWindow(Model m) throws IOException{
         setTitle("Système Solaire");
-        setSize(1280, 920);
+        setSize(1000, 700);
         setResizable(false);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container c = this.getContentPane();
 
         c.add(new MyPanel());
-
         setContentPane(c);
     }
 }
