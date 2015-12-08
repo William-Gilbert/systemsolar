@@ -17,6 +17,7 @@ public class MainWindow extends JFrame {
     JMenuItem itemAdd;
     JMenuItem itemSuppr;
     ControlMenu controlmenu;
+    private MyPanel pan_global;
 
 
     public MainWindow(Model m) throws IOException{
@@ -44,8 +45,18 @@ public class MainWindow extends JFrame {
         menuBar.add(menuFichier);
         menuBar.add(menuAstre);
         setJMenuBar(menuBar);
+        pan_global = new MyPanel(m);
+        pan_global.setLayout(null);
 
-        c.add(new MyPanel());
+
+
+
+        c.add(pan_global);
+
         setContentPane(c);
+    }
+
+    public void display(){
+        pan_global.repaint();
     }
 }
