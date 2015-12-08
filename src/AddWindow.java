@@ -55,7 +55,7 @@ public class AddWindow extends JFrame {
         DefaultListModel modeleList = new DefaultListModel();
         astreList = new JList();
         modeleList.addElement("TEST");
-        Astre astre = new Etoile();
+        Astre astre = new Etoile("Sun","soleil.png",200,200);
         m.addAstre(astre);
         if(lista.size()>0) {
             for(int i=0; i<lista.size(); i++){
