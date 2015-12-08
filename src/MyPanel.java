@@ -23,7 +23,6 @@ public class MyPanel extends JPanel {
         for(Astre a : m.getListOfAstre()){
             if(a != null ){
                 a.getImage().paintIcon(this,g,a.getPosX(),a.getPosY());
-                System.out.println("Affiche : " + a.getPosX()+" "+ a.getPosY());
             }
         }
 
