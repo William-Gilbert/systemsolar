@@ -1,4 +1,6 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +11,16 @@ public abstract class Astre {
     protected ImageIcon image;
     protected String nom;
     protected List<Astre> listOfSatellites;
+    protected int posX;
+    protected int posY;
 
-    public Astre(String nom, String pathImg){
+
+
+    protected Astre(String nom, String pathImg){
         listOfSatellites = new ArrayList<Astre>(5);
         for(int i=0 ; i < 5 ; i++) listOfSatellites.add(null);
-        // TODO nom et image
+        this.nom = nom;
+        image = new ImageIcon(pathImg);
     }
 
     public ImageIcon getImage() {
@@ -50,6 +57,18 @@ public abstract class Astre {
 
     public boolean removeSatellite(int index){
         return listOfSatellites.remove(index)!=null;
+    }
+
+    public abstract int getPosX();
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public abstract int getPosY();
+
+    public void setPosY(int posY) {
+        this.posY = posY;
     }
 
 

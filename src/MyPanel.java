@@ -10,14 +10,23 @@ import java.io.IOException;
  */
 public class MyPanel extends JPanel {
     private BufferedImage image;
+    private Model m;
 
 
-    public MyPanel() throws IOException{
+    public MyPanel(Model m) throws IOException{
         image = ImageIO.read(new File("background.jpg"));
+        this.m = m;
     }
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(image,0,0,1000,700,null);
+        for(Astre a : m.getListOfAstre()){
+            if(a != null ){
+                a.getImage().paintIcon(this,g,a.getPosX(),a.getPosY());
+                System.out.println("Affiche : " + a.getPosX()+" "+ a.getPosY());
+            }
+        }
+
     }
 
 }

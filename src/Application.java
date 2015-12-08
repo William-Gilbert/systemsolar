@@ -6,10 +6,22 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args){
         Model m = new Model();
+        Etoile a = new Etoile("Sun","soleil.png",200,200);
+        m.addAstre(a);
+        m.addAstre(new Satellite("Sun","lune.png",a,100,200,50));
+
         try {
             MainWindow w = new MainWindow(m);
-        } catch (IOException e) {
+            while(true){
+                w.display();
+                Thread.sleep(20);
+            }
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
+
+
     }
 }

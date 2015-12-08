@@ -8,7 +8,7 @@ import java.io.IOException;
  * @author  Tournoux C
  */
 public class MainWindow extends JFrame {
-
+    private MyPanel pan_global;
 
     public MainWindow(Model m) throws IOException{
         setTitle("Système Solaire");
@@ -17,8 +17,18 @@ public class MainWindow extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container c = this.getContentPane();
+        pan_global = new MyPanel(m);
+        pan_global.setLayout(null);
 
-        c.add(new MyPanel());
+
+
+
+        c.add(pan_global);
+
         setContentPane(c);
+    }
+
+    public void display(){
+        pan_global.repaint();
     }
 }

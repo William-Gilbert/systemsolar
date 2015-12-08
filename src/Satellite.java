@@ -10,8 +10,10 @@ public class Satellite extends Astre {
 
     public Satellite(String nom, String pathImg, Astre referent, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
         super(nom,pathImg);
-        // TODO Initialisation
-        // TODO Exception
+        astreReferent = referent;
+        this.demiGrandAxe = demiGrandAxe;
+        this.demiPetitAxe = demiPetitAxe;
+        this.periodeRotation = periodeRotation;
     }
 
 
@@ -48,4 +50,13 @@ public class Satellite extends Astre {
     }
 
 
+    @Override
+    public int getPosX() {
+       return (int)(demiGrandAxe * Math.cos(2*Math.PI*System.currentTimeMillis()/1000.0/periodeRotation) + astreReferent.getPosX());
+}
+
+    @Override
+    public int getPosY() {
+        return (int)(demiPetitAxe * Math.sin(2*Math.PI*System.currentTimeMillis()/1000.0/periodeRotation) + astreReferent.getPosY());
+    }
 }
