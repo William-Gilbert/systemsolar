@@ -14,7 +14,7 @@ public class MyPanel extends JPanel {
 
 
     public MyPanel(Model m) throws IOException{
-        image = ImageIO.read(new File("background.jpg"));
+        image = ImageIO.read(new File("image/background.jpg"));
         this.m = m;
     }
     protected void paintComponent(Graphics g) {

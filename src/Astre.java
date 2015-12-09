@@ -20,10 +20,8 @@ public abstract class Astre implements Serializable {
 
     protected Astre(String nom, String pathImg) {
         listOfSatellites = new ArrayList<Astre>();
-
         this.nom = nom;
-        image = new ImageIcon(pathImg);
-
+        image = new ImageIcon("image/"+pathImg);
 
     }
 
