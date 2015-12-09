@@ -19,8 +19,8 @@ public abstract class Astre {
 
 
     protected Astre(String nom, String pathImg) {
-        listOfSatellites = new ArrayList<Astre>(5);
-        for(int i=0 ; i < 5 ; i++) listOfSatellites.add(null);
+        listOfSatellites = new ArrayList<Astre>();
+
         this.nom = nom;
         image = new ImageIcon(pathImg);
 
@@ -51,9 +51,7 @@ public abstract class Astre {
         this.listOfSatellites = listOfSatellites;
     }
 
-    public boolean addSatellite(Astre a){
-        return listOfSatellites.add(a);
-    }
+    public abstract boolean addSatellite(String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation);
 
     public boolean removeSatellite(Astre a){
         return listOfSatellites.remove(a);

@@ -49,6 +49,10 @@ public class Satellite extends Astre {
         this.periodeRotation = periodeRotation;
     }
 
+    public boolean addSatellite(String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
+
+        return listOfSatellites.add(new Satellite(nom,pathImg,this,demiGrandAxe,demiPetitAxe,periodeRotation));
+    }
 
     @Override
     public int getPosX() {
