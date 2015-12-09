@@ -24,7 +24,7 @@ public class MainWindow extends JFrame {
         setTitle("Système Solaire");
         setSize(1000, 700);
         setResizable(false);
-        setVisible(true);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container c = this.getContentPane();
         controlmenu = new ControlMenu(this,m);
@@ -53,6 +53,7 @@ public class MainWindow extends JFrame {
         c.add(pan_global, BorderLayout.CENTER);
         setContentPane(c);
         setJMenuBar(menuBar);
+        setVisible(true);
     }
 
     public void display(){
