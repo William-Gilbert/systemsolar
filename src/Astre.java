@@ -3,7 +3,9 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -51,15 +53,20 @@ public abstract class Astre {
         this.listOfSatellites = listOfSatellites;
     }
 
-    public abstract boolean addSatellite(String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation);
+    public boolean addSatellite(String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
 
-    public boolean removeSatellite(Astre a){
+        return listOfSatellites.add(new Satellite(nom,pathImg,this,demiGrandAxe,demiPetitAxe,periodeRotation));
+    }
+
+    public boolean removeAstre(Astre a){
+        Iterator<Astre> itAstre = a.getListOfSatellites().iterator();
+        while(itAstre.hasNext()){
+            removeAstre(itAstre.next());
+        }
         return listOfSatellites.remove(a);
     }
 
-    public boolean removeSatellite(int index){
-        return listOfSatellites.remove(index)!=null;
-    }
+
 
     public abstract int getPosX();
 

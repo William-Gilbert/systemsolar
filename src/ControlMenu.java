@@ -13,10 +13,24 @@ public class ControlMenu implements ActionListener {
         model = m;
     }
     public void actionPerformed(ActionEvent a) {
-        try {
-            AddWindow nouv = new AddWindow(model);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(a.getSource() == mainWindow.itemAdd){
+            try {
+                AddWindow nouv = new AddWindow(model);
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
         }
+        else if(a.getSource() == mainWindow.itemSave){
+            model.save("mod");
+        }
+        else if(a.getSource() == mainWindow.itemOpen){
+            try {
+                model = Model.open("mod");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
     }
 }

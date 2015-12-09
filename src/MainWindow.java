@@ -32,7 +32,9 @@ public class MainWindow extends JFrame {
         menuFichier = new JMenu("Fichier");
         menuAstre = new JMenu("Astre");
         itemOpen = new JMenuItem("Ouvrir");
+        itemOpen.addActionListener(controlmenu);
         itemSave = new JMenuItem("Enregistrer");
+        itemSave.addActionListener(controlmenu);
         itemExit = new JMenuItem("Quitter");
         itemAdd = new JMenuItem("Ajouter un astre");
         itemAdd.addActionListener(controlmenu);

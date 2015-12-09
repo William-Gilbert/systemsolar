@@ -31,12 +31,14 @@ public class AddWindow extends JFrame {
     JTextField axeX;
     JLabel y;
     JTextField axeY;
+
+
     public AddWindow(Model m) throws IOException {
         setTitle("Système Solaire");
         setSize(800, 600);
         setResizable(false);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
         p1 = new JPanel();
