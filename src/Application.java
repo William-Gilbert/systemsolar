@@ -7,9 +7,10 @@ public class Application {
     public static void main(String[] args){
         Model m = new Model();
         Etoile a = new Etoile("Sun","terre.png",200,200);
-        a.addSatellite(new Satellite("Sun","deimos.png",a,70,70,3));
+        a.addSatellite("Sun","deimos.png",70,70,3);
+        a.getListOfSatellites().get(0).addSatellite("Luné","lune.png",50,50,2);
         m.addAstre(a);
-        m.addAstre(new Satellite("Sun","lune.png",a,50,50,3));
+
 
 
         try {
