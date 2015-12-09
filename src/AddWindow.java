@@ -57,6 +57,12 @@ public class AddWindow extends JFrame {
         if(lista.size()>0) {
             for(int i=0; i<lista.size(); i++){
                 modeleList.addElement(lista.get(i).getNom());
+                List<Astre> listeS = lista.get(i).getListOfSatellites();
+                DefaultListModel modelListSat = new DefaultListModel();
+                for(int j=0;j< listeS.size();j++){
+                    modelListSat.addElement(listeS.get(j).getNom());
+                }
+                modeleList.addElement(modelListSat);
             }
         }
         astreList.setModel(modeleList);
