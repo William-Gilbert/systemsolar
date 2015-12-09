@@ -1,3 +1,6 @@
+import javafx.stage.FileChooser;
+
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,46 +16,36 @@ public class Model implements Serializable {
         listOfAstre = new ArrayList<Astre>();
     }
 
-    public boolean save(String name){
-        ObjectOutputStream oos = null;
 
+
+    public void open(String name)throws Exception{
+        Astre a = null;
         try {
-            final FileOutputStream fichier = new FileOutputStream(name+".dat");
-            oos = new ObjectOutputStream(fichier);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-
-        } finally {
-            try {
-                if (oos != null) {
-                    oos.flush();
-                    oos.close();
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return true;
-    }
-
-    public static Model open(String name)throws Exception{
-        // TODO exception
-        Model m = null;
             // ouverture d'un flux d'entrée depuis le fichier "personne.serial"
-        FileInputStream fis = new FileInputStream(name+".dat");
-        // création d'un "flux objet" avec le flux fichier
-        ObjectInputStream ois= new ObjectInputStream(fis);
+            FileInputStream fis = new FileInputStream(name);
+            // création d'un "flux objet" avec le flux fichier
+            ObjectInputStream ois= new ObjectInputStream(fis);
+            try {
+                // désérialisation : lecture de l'objet depuis le flux d'entrée
+                a = (Astre) ois.readObject();
+            } finally {
+                // on ferme les flux
+                try {
+                    ois.close();
+                } finally {
+                    fis.close();
+                }
+            }
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        } catch(ClassNotFoundException cnfe) {
+            cnfe.printStackTrace();
+        }
+        if(a != null) {
+            System.out.println(a + " a été désérialisé");
+        }
 
-        // désérialisation : lecture de l'objet depuis le flux d'entrée
-        m = (Model) ois.readObject();
-
-        ois.close();
-        fis.close();
-
-        if(m== null) throw new NullPointerException();
-
-        return m;
+        listOfAstre.add(a);
 
     }
 
@@ -75,4 +68,15 @@ public class Model implements Serializable {
     }
 
 
+    public Astre getAstre(int i) {
+        return listOfAstre.get(i);
+    }
+
+    public Astre getAstre(String nom) throws ExceptionUnknowAstre{
+        for(Astre a : listOfAstre){
+            if(a.getNom().equals(nom))
+                return a;
+        }
+        throw new ExceptionUnknowAstre(nom+ " n'existe pas");
+    }
 }

@@ -36,6 +36,7 @@ public class MainWindow extends JFrame {
         itemSave = new JMenuItem("Enregistrer");
         itemSave.addActionListener(controlmenu);
         itemExit = new JMenuItem("Quitter");
+        itemExit.addActionListener(controlmenu);
         itemAdd = new JMenuItem("Ajouter un astre");
         itemAdd.addActionListener(controlmenu);
         itemSuppr = new JMenuItem("Supprimer un astre");

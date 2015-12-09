@@ -1,9 +1,7 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
 /**
  * Created by william on 04/12/2015.
  */
-public abstract class Astre {
+public abstract class Astre implements Serializable {
     protected ImageIcon image;
     protected String nom;
     protected List<Astre> listOfSatellites;
@@ -64,6 +62,32 @@ public abstract class Astre {
             removeAstre(itAstre.next());
         }
         return listOfSatellites.remove(a);
+    }
+
+    public boolean save(String name){
+        try {
+
+            // ouverture d'un flux de sortie vers le fichier "personne.serial"
+            FileOutputStream fos = new FileOutputStream(name);
+            // création d'un "flux objet" avec le flux fichier
+            ObjectOutputStream oos= new ObjectOutputStream(fos);
+            try {
+                // sérialisation : écriture de l'objet dans le flux de sortie
+                oos.writeObject(this);
+                // on vide le tampon
+                oos.flush();
+                System.out.println(this + " a été sérialisé");
+            } finally {
+                try {
+                    oos.close();
+                } finally {
+                    fos.close();
+                }
+            }
+        } catch(IOException ioe) {
+            ioe.printStackTrace();
+        }
+        return true;
     }
 
 
