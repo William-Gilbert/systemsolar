@@ -21,8 +21,18 @@ public class MyPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(image,0,0,1000,700,null);
         for(Astre a : m.getListOfAstre()){
-            if(a != null ){
-                a.getImage().paintIcon(this,g,a.getPosX(),a.getPosY());
+            paintMySatellites(a, g);
+        }
+
+    }
+
+    protected void paintMySatellites(Astre a, Graphics g){
+        if(a != null){
+            int dec = a.getImage().getIconHeight()/2;
+            a.getImage().paintIcon(this,g,a.getPosX()-dec,a.getPosY()-dec);
+
+            for(Astre e : a.getListOfSatellites()){
+                paintMySatellites(e, g);
             }
         }
 

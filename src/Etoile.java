@@ -5,8 +5,8 @@ public class Etoile extends Astre {
 
     public Etoile(String name, String pathImg, int posX, int posY){
         super(name, pathImg);
-        this.posX = posX-(image.getIconWidth()/2);
-        this.posY = posY+(image.getIconHeight()/2);
+        this.posX = posX;
+        this.posY = posY;
     }
 
 

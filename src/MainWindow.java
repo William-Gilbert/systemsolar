@@ -44,7 +44,7 @@ public class MainWindow extends JFrame {
         menuAstre.add(itemSuppr);
         menuBar.add(menuFichier);
         menuBar.add(menuAstre);
-        setJMenuBar(menuBar);
+
         setLayout(new BorderLayout());
 
         pan_global = new MyPanel(m);
@@ -52,6 +52,7 @@ public class MainWindow extends JFrame {
 
         c.add(pan_global, BorderLayout.CENTER);
         setContentPane(c);
+        setJMenuBar(menuBar);
     }
 
     public void display(){

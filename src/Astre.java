@@ -1,6 +1,8 @@
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +18,13 @@ public abstract class Astre {
 
 
 
-    protected Astre(String nom, String pathImg){
+    protected Astre(String nom, String pathImg) {
         listOfSatellites = new ArrayList<Astre>(5);
         for(int i=0 ; i < 5 ; i++) listOfSatellites.add(null);
         this.nom = nom;
         image = new ImageIcon(pathImg);
+
+
     }
 
     public ImageIcon getImage() {
@@ -70,6 +74,4 @@ public abstract class Astre {
     public void setPosY(int posY) {
         this.posY = posY;
     }
-
-
 }
