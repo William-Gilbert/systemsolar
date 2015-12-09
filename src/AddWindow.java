@@ -56,8 +56,7 @@ public class AddWindow extends JFrame {
         astreList = new JList();
         if(lista.size()>0) {
             for(int i=0; i<lista.size(); i++){
-                ///modeleList.addElement(lista.get(i).getNom());
-                System.out.println(lista.get(i).getNom());
+                modeleList.addElement(lista.get(i).getNom());
             }
         }
         astreList.setModel(modeleList);
