@@ -1,3 +1,7 @@
+package fr.system.solar;
+
+import fr.system.solar.Model;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;

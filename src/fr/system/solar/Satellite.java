@@ -1,3 +1,5 @@
+package fr.system.solar;
+
 /**
  * Created by william on 04/12/2015.
  */
@@ -8,8 +10,8 @@ public class Satellite extends Astre {
     private int periodeRotation;
 
 
-    public Satellite(String nom, String pathImg, Astre referent, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
-        super(nom,pathImg);
+    public Satellite(int id, String nom, String pathImg, Astre referent, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
+        super(id,nom,pathImg);
         astreReferent = referent;
         this.demiGrandAxe = demiGrandAxe;
         this.demiPetitAxe = demiPetitAxe;

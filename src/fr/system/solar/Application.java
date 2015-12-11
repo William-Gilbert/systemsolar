@@ -1,3 +1,5 @@
+package fr.system.solar;
+
 import java.io.IOException;
 
 /**
@@ -8,14 +10,14 @@ public class Application {
         Model m = new Model();
         // TODO Ouverture de deux étoiles identique fonctionne -> devrait avoir exception
         // TODO Fenêtre pour valider le fait que c'est enregistré
-        Etoile a = new Etoile("Sun","terre.png",200,200);
-        a.addSatellite("Sun","lune.png",70,70,3);
-        a.getListOfSatellites().get(0).addSatellite("Luné", "deimos.png", 20, 20, 2);
+        Etoile a = new Etoile(m.generateId(),"Sun","terre.png",200,200);
+        a.addSatellite(m.generateId(),"Sun","lune.png",70,70,3);
+        a.getListOfSatellites().get(0).addSatellite(m.generateId(),"Luné", "deimos.png", 20, 20, 2);
         m.addAstre(a);
 
 
-        Etoile e2 = new Etoile("mars","mars.png",300,300);
-        e2.addSatellite("phobos","phobos.png",30,30,15);
+        Etoile e2 = new Etoile(m.generateId(),"mars","mars.png",300,300);
+        e2.addSatellite(m.generateId(),"phobos","phobos.png",30,30,15);
         m.addAstre(e2);
 
 

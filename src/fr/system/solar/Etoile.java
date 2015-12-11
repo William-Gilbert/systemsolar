@@ -1,10 +1,12 @@
+package fr.system.solar;
+
 /**
  * Created by william on 04/12/2015.
  */
 public class Etoile extends Astre {
 
-    public Etoile(String name, String pathImg, int posX, int posY){
-        super(name, pathImg);
+    public Etoile(int id,String name, String pathImg, int posX, int posY){
+        super(id,name, pathImg);
         this.posX = posX;
         this.posY = posY;
     }

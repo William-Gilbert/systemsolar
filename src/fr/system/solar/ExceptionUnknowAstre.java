@@ -1,3 +1,5 @@
+package fr.system.solar;
+
 /**
  * Created by william on 09/12/2015.
  */

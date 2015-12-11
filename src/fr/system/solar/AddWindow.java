@@ -1,3 +1,5 @@
+package fr.system.solar;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;

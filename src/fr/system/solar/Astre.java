@@ -1,3 +1,5 @@
+package fr.system.solar;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.image.BufferedImage;
@@ -10,6 +12,7 @@ import java.util.List;
  * Created by william on 04/12/2015.
  */
 public abstract class Astre implements Serializable {
+    protected int identifiant;
     protected ImageIcon image;
     protected String nom;
     protected List<Astre> listOfSatellites;
@@ -17,8 +20,8 @@ public abstract class Astre implements Serializable {
     protected int posY;
 
 
-
-    protected Astre(String nom, String pathImg) {
+    protected Astre(int id,String nom, String pathImg) {
+        this.identifiant = id;
         listOfSatellites = new ArrayList<Astre>();
         this.nom = nom;
         image = new ImageIcon("image/"+pathImg);
@@ -49,9 +52,9 @@ public abstract class Astre implements Serializable {
         this.listOfSatellites = listOfSatellites;
     }
 
-    public boolean addSatellite(String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
+    public boolean addSatellite(int id, String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
 
-        return listOfSatellites.add(new Satellite(nom,pathImg,this,demiGrandAxe,demiPetitAxe,periodeRotation));
+        return listOfSatellites.add(new Satellite(id,nom,pathImg,this,demiGrandAxe,demiPetitAxe,periodeRotation));
     }
 
     public boolean removeAstre(Astre a){
@@ -65,7 +68,7 @@ public abstract class Astre implements Serializable {
     public boolean save(String name){
         try {
 
-            // ouverture d'un flux de sortie vers le fichier "personne.serial"
+            // ouverture d'un flux de sortie vers le fichier name
             FileOutputStream fos = new FileOutputStream(name);
             // création d'un "flux objet" avec le flux fichier
             ObjectOutputStream oos= new ObjectOutputStream(fos);
@@ -100,5 +103,9 @@ public abstract class Astre implements Serializable {
 
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    public int getId() {
+        return identifiant;
     }
 }
