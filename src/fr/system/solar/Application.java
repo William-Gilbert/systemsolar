@@ -8,8 +8,6 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args){
         Model m = new Model();
-        // TODO Ouverture de deux étoiles identique fonctionne -> devrait avoir exception
-        // TODO Fenêtre pour valider le fait que c'est enregistré
         Etoile a = new Etoile(m.generateId(),"Sun","terre.png",200,200);
         a.addSatellite(m.generateId(),"Sun","lune.png",70,70,3);
         a.getListOfSatellites().get(0).addSatellite(m.generateId(),"Luné", "deimos.png", 20, 20, 2);
