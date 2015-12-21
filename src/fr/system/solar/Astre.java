@@ -190,4 +190,6 @@ public abstract class Astre implements Serializable {
     public int getId() {
         return identifiant;
     }
+
+    public abstract boolean isSatellite();
 }

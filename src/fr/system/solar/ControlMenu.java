@@ -31,13 +31,7 @@ public class ControlMenu implements ActionListener {
             }
         }
         else if(a.getSource() == mainWindow.itemSave){
-
             sauvegarde();
-
-
-
-
-
         }
         else if(a.getSource() == mainWindow.itemOpen){
 

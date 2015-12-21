@@ -105,4 +105,8 @@ public class Satellite extends Astre {
     public int getPosY() {
         return (int)(demiPetitAxe * Math.sin(2*Math.PI*System.currentTimeMillis()/1000.0/periodeRotation) + astreReferent.getPosY());
     }
+
+    public boolean isSatellite(){
+        return true;
+    }
 }

@@ -8,9 +8,10 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args){
         Model m = new Model();
-        Etoile a = new Etoile(m.generateId(),"Sun","terre.png",200,200);
-        a.addSatellite(m.generateId(),"Sun","lune.png",70,70,3);
-        a.getListOfSatellites().get(0).addSatellite(m.generateId(),"Luné", "deimos.png", 20, 20, 2);
+        Etoile a = new Etoile(m.generateId(),"Sun","soleil.png",450,375);
+        a.addSatellite(m.generateId(),"Terre","terre.png",300,200,20);
+        a.getListOfSatellites().get(0).addSatellite(m.generateId(),"Lune", "lune.png", 200, 80, 5);
+        a.getListOfSatellites().get(0).addSatellite(m.generateId(), "phobos","phobos.png",100,40,2);
         m.addAstre(a);
 
 
