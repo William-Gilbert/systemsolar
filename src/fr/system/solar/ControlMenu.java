@@ -82,7 +82,10 @@ public class ControlMenu implements ActionListener {
                     if(new File(choix.getSelectedFile().getAbsolutePath()+".dat").exists()) {
                         if (JOptionPane.YES_OPTION == JOptionPane.showConfirmDialog(mainWindow, "Voulez vous écraser "
                                 + choix.getSelectedFile().getName() + ".dat ?", "Écraser", JOptionPane.YES_NO_OPTION)) {
-                            toSave.save(choix.getSelectedFile().getAbsolutePath() + ".dat");
+                            if(!toSave.save(choix.getSelectedFile().getAbsolutePath() + ".dat")){
+                                JOptionPane.showMessageDialog(mainWindow, "La sauvegarde de" + n + ".dat a échoué.", "Échec de sauvegarde", JOptionPane.ERROR_MESSAGE);
+                            }
+
                             JOptionPane.showMessageDialog(null, "Sauvegarde de" + n + ".dat réussie.", "Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
                             break;
                         }
