@@ -1,6 +1,7 @@
 package fr.system.solar;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -49,12 +50,16 @@ public abstract class Astre implements Serializable {
      *      Le nom de l'astre
      * @param pathImg
      *      Chemin absolue ou relatif vers l'astre
+     * @throws
+     *      ExceptionUnknowAstre
      */
-    protected Astre(int id,String nom, String pathImg) {
+    protected Astre(int id,String nom, String pathImg) throws ExceptionUnknowAstre{
         this.identifiant = id;
         this.listOfSatellites = new ArrayList<Astre>();
         this.nom = nom;
         this.image = new ImageIcon("image/"+pathImg);
+        if(image.getImageLoadStatus() == MediaTracker.ERRORED)
+            throw new ExceptionUnknowAstre("Wrong path");
     }
 
     /**
@@ -114,7 +119,7 @@ public abstract class Astre implements Serializable {
      * @return
      *      Un booléen indiquant si oui ou non le nouvel astre a été ajouté à la liste des astres
      */
-    public boolean addSatellite(int id, String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
+    public boolean addSatellite(int id, String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation) throws ExceptionUnknowAstre{
         return listOfSatellites.add(new Satellite(id,nom,pathImg,this,demiGrandAxe,demiPetitAxe,periodeRotation));
     }
 

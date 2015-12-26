@@ -1,5 +1,6 @@
 package fr.system.solar;
 
+import javax.swing.*;
 import java.io.IOException;
 
 /**
@@ -8,16 +9,28 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args){
         Model m = new Model();
-        Etoile a = new Etoile(m.generateId(),"Sun","soleil.png",450,375);
-        a.addSatellite(m.generateId(),"Terre","terre.png",300,200,20);
-        a.getListOfSatellites().get(0).addSatellite(m.generateId(),"Lune", "lune.png", 200, 80, 5);
-        a.getListOfSatellites().get(0).addSatellite(m.generateId(), "phobos","phobos.png",100,40,2);
-        m.addAstre(a);
 
 
-        Etoile e2 = new Etoile(m.generateId(),"mars","mars.png",300,300);
-        e2.addSatellite(m.generateId(),"phobos","phobos.png",30,30,15);
-        m.addAstre(e2);
+        Etoile a = null;
+        try {
+            a = new Etoile(m.generateId(),"Sun","soleil.png",450,375);
+            a.addSatellite(m.generateId(),"Terre","terre.png",300,200,20);
+            a.getListOfSatellites().get(0).addSatellite(m.generateId(),"Lune", "lune.png", 200, 80, 5);
+            a.getListOfSatellites().get(0).addSatellite(m.generateId(), "phobos","phobos.png",100,40,2);
+            m.addAstre(a);
+
+
+            Etoile e2 = new Etoile(m.generateId(),"mars","mars.png",300,300);
+            e2.addSatellite(m.generateId(),"phobos","phobos.png",30,30,15);
+            m.addAstre(e2);
+
+
+
+
+        } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
+            JOptionPane.showMessageDialog(null, "Wrong Path", "Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
+        }
+
 
 
 

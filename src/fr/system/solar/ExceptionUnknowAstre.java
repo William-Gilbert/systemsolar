@@ -1,7 +1,10 @@
 package fr.system.solar;
 
 /**
- * Created by william on 09/12/2015.
+ * Exception indiquant une erreur dans la création ou l'appel d'un astre
+ *
+ * @author Gilbert William, Tournoux Corentin
+ * @version 1.0
  */
 public class ExceptionUnknowAstre extends Exception {
     public ExceptionUnknowAstre(String s) {

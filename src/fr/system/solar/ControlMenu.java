@@ -88,6 +88,9 @@ public class ControlMenu implements ActionListener {
                         }
                     }
                 }
+                else{
+                    break;
+                }
             }
 
         }catch (ArrayIndexOutOfBoundsException e){

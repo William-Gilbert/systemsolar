@@ -44,7 +44,7 @@ public class Satellite extends Astre {
      * @param periodeRotation
      *      Période de rotation du satellite
      */
-    public Satellite(int id, String nom, String pathImg, Astre referent, int demiGrandAxe, int demiPetitAxe, int periodeRotation){
+    public Satellite(int id, String nom, String pathImg, Astre referent, int demiGrandAxe, int demiPetitAxe, int periodeRotation) throws ExceptionUnknowAstre{
         super(id,nom,pathImg);
         astreReferent = referent;
         this.demiGrandAxe = demiGrandAxe;

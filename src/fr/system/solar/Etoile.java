@@ -24,7 +24,7 @@ public class Etoile extends Astre {
      * @param posY
      *      Coordonnée y de l'astre
      */
-    public Etoile(int id,String name, String pathImg, int posX, int posY){
+    public Etoile(int id,String name, String pathImg, int posX, int posY) throws ExceptionUnknowAstre{
         super(id,name, pathImg);
         this.posX = posX;
         this.posY = posY;
