@@ -72,7 +72,7 @@ public class ControlMenu implements ActionListener {
         JFileChooser choix = new JFileChooser("dat");
         int retour = choix.showOpenDialog(mainWindow);
         if(retour == JFileChooser.APPROVE_OPTION){
-            int checkUp = model.open(choix.getSelectedFile().getAbsolutePath());
+
             if(model.open(choix.getSelectedFile().getAbsolutePath()) == 1) {
                 JOptionPane.showMessageDialog(null, "L'étoile est ouverte dans l'application", "Ouverture", JOptionPane.INFORMATION_MESSAGE);
             }else{

@@ -105,7 +105,7 @@ public class Model implements Serializable {
             return 1;
 
         }
-        return -1;
+        return 0;
     }
 
 
