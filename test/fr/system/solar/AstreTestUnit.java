@@ -1,11 +1,12 @@
 package fr.system.solar;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
-import org.junit.Test;
 
 /**
- * Created by william on 26/12/2015.
+ * Exception indiquant une erreur dans la création ou l'appel d'un astre
+ *
+ * @author Gilbert William, Tournoux Corentin
+ * @version 1.0
  */
 public class AstreTestUnit extends TestCase{
 
