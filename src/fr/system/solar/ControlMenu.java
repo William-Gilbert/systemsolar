@@ -43,6 +43,9 @@ public class ControlMenu implements ActionListener {
         if(a.getSource() == mainWindow.itemAdd){
             add();
         }
+        else if(a.getSource() == mainWindow.itemSuppr){
+            DelWindow del = new DelWindow(model);
+        }
         else if(a.getSource() == mainWindow.itemSave){
             sauvegarde();
         }

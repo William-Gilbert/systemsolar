@@ -1,5 +1,6 @@
 package fr.system.solar;
 
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,7 +8,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by william on 21/12/2015.
  */
-public class ControlAddWindow implements ActionListener {
+public class ControlAddWindow /*implements ActionListener */{
     private AddWindow window;
     private Model m;
 
@@ -18,7 +19,7 @@ public class ControlAddWindow implements ActionListener {
     }
 
 
-    @Override
+   /*@Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == window.getCreateAstre()){
             // TODO AJOUT
@@ -40,5 +41,6 @@ public class ControlAddWindow implements ActionListener {
                 window.getPanSat().setVisible(false);
             }
         }
-    }
+    }*/
 }
+

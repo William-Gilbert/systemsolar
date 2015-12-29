@@ -19,6 +19,7 @@ public class MainWindow extends JFrame {
     JMenuItem itemAdd;
     JMenuItem itemSuppr;
     ControlMenu controlmenu;
+    ControlDelWindow controlDelWindow;
     private MyPanel pan_global;
 
 
@@ -42,6 +43,7 @@ public class MainWindow extends JFrame {
         itemAdd = new JMenuItem("Ajouter un astre");
         itemAdd.addActionListener(controlmenu);
         itemSuppr = new JMenuItem("Supprimer un astre");
+        itemSuppr.addActionListener(controlmenu);
         menuFichier.add(itemOpen);
         menuFichier.add(itemSave);
         menuFichier.add(itemExit);

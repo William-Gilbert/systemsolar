@@ -122,13 +122,27 @@ public abstract class Astre implements Serializable {
     public boolean addSatellite(int id, String nom, String pathImg, int demiGrandAxe, int demiPetitAxe, int periodeRotation) throws ExceptionUnknowAstre{
         return listOfSatellites.add(new Satellite(id,nom,pathImg,this,demiGrandAxe,demiPetitAxe,periodeRotation));
     }
+    public String toString(){
+        return getNom();
+    }
 
-    public boolean removeAstre(Astre a){
-        Iterator<Astre> itAstre = a.getListOfSatellites().iterator();
+    public void removeAstre(){
+        if(this.getListOfSatellites()!=null) {
+            for (int i = 0; i < this.getListOfSatellites().size(); i++) {
+                Astre astrecourant = this.getListOfSatellites().get(i);
+                if (this.getListOfSatellites().get(i).getListOfSatellites() != null) {
+                    astrecourant.removeAstre();
+                }
+                this.getListOfSatellites().remove(astrecourant);
+            }
+
+        }
+        listOfSatellites.remove(this);
+        /*Iterator<Astre> itAstre = a.getListOfSatellites().iterator();
         while(itAstre.hasNext()){
             removeAstre(itAstre.next());
         }
-        return listOfSatellites.remove(a);
+        return listOfSatellites.remove(a);*/
     }
 
 

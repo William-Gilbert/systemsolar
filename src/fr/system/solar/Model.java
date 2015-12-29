@@ -132,8 +132,19 @@ public class Model implements Serializable {
     }
 
 
-    public boolean removeAstre(int index){
-        return listOfAstre.remove(index)!=null;
+    public boolean removeAstre(Object o){
+        Astre a = (Astre) o;
+        List<Astre> list = a.getListOfSatellites();
+        if(a.getListOfSatellites()!=null){
+            for(int i=0;i<list.size();i++){
+                Astre astrecourant = list.get(i);
+                if(list.get(i).getListOfSatellites()!=null){
+                    removeAstre(astrecourant);
+                    astrecourant.getListOfSatellites().remove(i);
+                }
+            }
+        }
+        return listOfAstre.remove(o);
     }
 
 
