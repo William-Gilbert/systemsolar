@@ -41,6 +41,10 @@ public class AddWindow extends JFrame {
     //Cinquieme couche
     JPanel p5;
     JButton btValider;
+    JPanel image;
+    JButton btImage;
+    JLabel pre;
+    JLabel nom;
     public DefaultMutableTreeNode parcours(List<Astre> list,DefaultMutableTreeNode dmtn){
         if(list!=null) {
             for (int i = 0; i < list.size(); i++) {
@@ -122,17 +126,27 @@ public class AddWindow extends JFrame {
         p4.add(axeX);
         p4.add(y);
         p4.add(axeY);
-
+        image = new JPanel();
+        image.setLayout(new FlowLayout());
+        btImage = new JButton("Choisir une image");
+        btImage.addActionListener(controlbouton);
+        image.add(btImage);
         p5=new JPanel();
         p5.setLayout(new FlowLayout());
         btValider = new JButton("Ajouter un astre");
         btValider.addActionListener(controlbouton);
+        pre = new JLabel("Image : ");
+        nom = new JLabel(" ");
+        image.add(pre);
+        image.add(nom);
         p5.add(btValider);
+
 
         main.add(p1);
         main.add(p2);
         main.add(p3);
         main.add(p4);
+        main.add(image);
         main.add(p5);
         setContentPane(main);
         axeX.setEnabled(true);

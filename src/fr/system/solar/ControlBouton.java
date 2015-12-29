@@ -1,8 +1,10 @@
 package fr.system.solar;
 
+import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  * Created by coren_000 on 09/12/2015.
@@ -36,14 +38,16 @@ public class ControlBouton implements ActionListener {
         }
         else if(a.getSource() == addWindow.btValider){
             String nom = addWindow.textName.getText();
+            String image = addWindow.nom.getText();
             if(addWindow.sat.isSelected()){
                 DefaultMutableTreeNode dmtn = (DefaultMutableTreeNode) addWindow.jt.getLastSelectedPathComponent();
                 Astre astre = (Astre) dmtn.getUserObject();
                 int demiGrandAxe = Integer.parseInt(addWindow.axeA.getText());
                 int demiPetiteAxe = Integer.parseInt(addWindow.axeB.getText());
                 int periodeRotation = Integer.parseInt(addWindow.revolution.getText());
+
                 try {
-                    astre.addSatellite(model.generateId(),nom,"asteroide.png",demiGrandAxe,demiPetiteAxe,periodeRotation);
+                    astre.addSatellite(model.generateId(),nom,image,demiGrandAxe,demiPetiteAxe,periodeRotation);
                 } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
                     exceptionUnknowAstre.printStackTrace();
                 }
@@ -53,13 +57,22 @@ public class ControlBouton implements ActionListener {
                 int y = Integer.parseInt(addWindow.axeY.getText());
                 Astre ast=null;
                 try {
-                    ast = new Etoile(model.generateId(),nom,"asteroide.png",x,y);
+                    ast = new Etoile(model.generateId(),nom,image,x,y);
                 } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
                     exceptionUnknowAstre.printStackTrace();
                 }
                 model.addAstre(ast);
 
 
+            }
+
+        }
+        else if(a.getSource() == addWindow.btImage){
+            JFileChooser choix = new JFileChooser("C:\\Users\\coren_000\\IdeaProjects\\Licence\\MOPA\\systemsolar2\\image");
+            int retour = choix.showOpenDialog(addWindow);
+            if(retour == JFileChooser.APPROVE_OPTION){
+                File file = choix.getSelectedFile();
+                addWindow.nom.setText(file.getName());
             }
         }
     }
