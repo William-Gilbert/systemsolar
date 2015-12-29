@@ -10,71 +10,100 @@ import java.io.File;
  * Created by coren_000 on 09/12/2015.
  */
 public class ControlBouton implements ActionListener {
-    AddWindow addWindow;
-    Model model;
+    private AddWindow addWindow;
+    private Model model;
+
     public ControlBouton(AddWindow mainWindow,Model m) {
         this.addWindow = mainWindow;
         model = m;
     }
 
     public void actionPerformed(ActionEvent a) {
-        if(a.getSource() == addWindow.sat){
-            if(addWindow.sat.isSelected()){
-                addWindow.axeX.setEnabled(false);
-                addWindow.axeY.setEnabled(false);
-                addWindow.jt.setEnabled(true);
-                addWindow.axeA.setEnabled(true);
-                addWindow.axeB.setEnabled(true);
-                addWindow.revolution.setEnabled(true);
+        if(a.getSource() == addWindow.getCheckBoxSat()){
+            if(addWindow.getCheckBoxSat().isSelected()){
+                addWindow.getPanSat().setVisible(true);
+                addWindow.getPanEtoile().setVisible(false);
+                addWindow.getJtLocation().setEnabled(true);
             }
             else{
-                addWindow.axeX.setEnabled(true);
-                addWindow.axeY.setEnabled(true);
-                addWindow.jt.setEnabled(false);
-                addWindow.axeA.setEnabled(false);
-                addWindow.axeB.setEnabled(false);
-                addWindow.revolution.setEnabled(false);
+                addWindow.getPanSat().setVisible(false);
+                addWindow.getPanEtoile().setVisible(true);
+                addWindow.getJtLocation().setEnabled(false);
             }
         }
-        else if(a.getSource() == addWindow.btValider){
-            String nom = addWindow.textName.getText();
-            String image = addWindow.nom.getText();
-            if(addWindow.sat.isSelected()){
-                DefaultMutableTreeNode dmtn = (DefaultMutableTreeNode) addWindow.jt.getLastSelectedPathComponent();
-                Astre astre = (Astre) dmtn.getUserObject();
-                int demiGrandAxe = Integer.parseInt(addWindow.axeA.getText());
-                int demiPetiteAxe = Integer.parseInt(addWindow.axeB.getText());
-                int periodeRotation = Integer.parseInt(addWindow.revolution.getText());
+        else if(a.getSource() == addWindow.getBtValider()){
+            add();
+        }
+        else if(a.getSource() == addWindow.getBtImage()){
+            selectAnImage();
+        }
 
-                try {
-                    astre.addSatellite(model.generateId(),nom,image,demiGrandAxe,demiPetiteAxe,periodeRotation);
-                } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
-                    exceptionUnknowAstre.printStackTrace();
-                }
+
+
+    }
+
+
+    private void selectAnImage(){
+        JFileChooser choix = new JFileChooser("image");
+        int retour = choix.showOpenDialog(addWindow);
+        if(retour == JFileChooser.APPROVE_OPTION){
+            File file = choix.getSelectedFile();
+            addWindow.getPathImg().setText(file.getName());
+        }
+    }
+
+    private void add(){
+        String nom = addWindow.getTfs().get(0).getText();
+        String imgPath = addWindow.getPathImg().getText();
+
+        /* Vérification */
+        if(addWindow.getTfs().get(0).getText().equals("")){
+            JOptionPane.showMessageDialog(addWindow, "Champ vide", "Création", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if(addWindow.getPanEtoile().isVisible()){
+            if(addWindow.getTfs().get(4).getText().equals("")  ||addWindow.getTfs().get(5).getText().equals("") ){
+                JOptionPane.showMessageDialog(addWindow, "Champ vide", "Création", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-            else{
-                int x = Integer.parseInt(addWindow.axeX.getText());
-                int y = Integer.parseInt(addWindow.axeY.getText());
-                Astre ast=null;
-                try {
-                    ast = new Etoile(model.generateId(),nom,image,x,y);
-                } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
-                    exceptionUnknowAstre.printStackTrace();
-                }
-                model.addAstre(ast);
-
-
+        }else{
+            if(addWindow.getTfs().get(1).getText().equals("")  || addWindow.getTfs().get(2).getText().equals("") ||
+                addWindow.getTfs().get(3).getText().equals("") ){
+                JOptionPane.showMessageDialog(addWindow, "Champ vide", "Création", JOptionPane.ERROR_MESSAGE);
+                return;
             }
+        }
+
+
+        if (addWindow.getCheckBoxSat().isSelected()){
+            DefaultMutableTreeNode dmtn = (DefaultMutableTreeNode) addWindow.getJtLocation().getLastSelectedPathComponent();
+            Astre astre = (Astre) dmtn.getUserObject();
+            int demiGrandAxe = Integer.parseInt(addWindow.getTfs().get(1).getText());
+            int demiPetiteAxe = Integer.parseInt(addWindow.getTfs().get(2).getText());
+            int periodeRotation = Integer.parseInt(addWindow.getTfs().get(3).getText());
+
+            try {
+                astre.addSatellite(model.generateId(),nom,imgPath,demiGrandAxe,demiPetiteAxe,periodeRotation);
+            } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
+                exceptionUnknowAstre.printStackTrace();
+            }
+        }
+        else{
+            int x = Integer.parseInt(addWindow.getTfs().get(4).getText());
+            int y = Integer.parseInt(addWindow.getTfs().get(5).getText());
+            Astre ast=null;
+
+            try {
+                ast = new Etoile(model.generateId(),nom,imgPath,x,y);
+            } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
+                exceptionUnknowAstre.printStackTrace();
+            }
+            model.addAstre(ast);
+
 
         }
-        else if(a.getSource() == addWindow.btImage){
-            JFileChooser choix = new JFileChooser("C:\\Users\\coren_000\\IdeaProjects\\Licence\\MOPA\\systemsolar2\\image");
-            int retour = choix.showOpenDialog(addWindow);
-            if(retour == JFileChooser.APPROVE_OPTION){
-                File file = choix.getSelectedFile();
-                addWindow.nom.setText(file.getName());
-            }
-        }
+
+        addWindow.dispose();
     }
 
 }
