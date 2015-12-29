@@ -44,7 +44,7 @@ public class ControlMenu implements ActionListener {
             add();
         }
         else if(a.getSource() == mainWindow.itemSuppr){
-            DelWindow del = new DelWindow(model);
+            deleteAstre();
         }
         else if(a.getSource() == mainWindow.itemSave){
             sauvegarde();
@@ -66,6 +66,12 @@ public class ControlMenu implements ActionListener {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+
+
+    private void deleteAstre(){
+        DelWindow del = new DelWindow(model);
     }
 
     /**

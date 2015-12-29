@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args){
         Model m = new Model();
-/*
+
 
         Etoile a = null;
         try {
@@ -29,7 +29,7 @@ public class Application {
 
         } catch (ExceptionUnknowAstre exceptionUnknowAstre) {
             JOptionPane.showMessageDialog(null, "Wrong Path", "Sauvegarde", JOptionPane.INFORMATION_MESSAGE);
-        }*/
+        }
 
 
 

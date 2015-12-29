@@ -126,23 +126,22 @@ public abstract class Astre implements Serializable {
         return getNom();
     }
 
-    public void removeAstre(){
-        if(this.getListOfSatellites()!=null) {
-            for (int i = 0; i < this.getListOfSatellites().size(); i++) {
-                Astre astrecourant = this.getListOfSatellites().get(i);
-                if (this.getListOfSatellites().get(i).getListOfSatellites() != null) {
-                    astrecourant.removeAstre();
-                }
-                this.getListOfSatellites().remove(astrecourant);
+
+    public boolean removeAstre(Astre a){
+        a.removeMySatellites();
+        return listOfSatellites.remove(a);
+    }
+
+    public void removeMySatellites(){
+
+        if(listOfSatellites.size()!=0) {
+            for (Astre a : listOfSatellites) {
+               a.removeMySatellites();
             }
 
+            listOfSatellites.clear();
+
         }
-        listOfSatellites.remove(this);
-        /*Iterator<Astre> itAstre = a.getListOfSatellites().iterator();
-        while(itAstre.hasNext()){
-            removeAstre(itAstre.next());
-        }
-        return listOfSatellites.remove(a);*/
     }
 
 

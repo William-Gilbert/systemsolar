@@ -132,10 +132,10 @@ public class Model implements Serializable {
     }
 
 
-    public boolean removeAstre(Object o){
-        Astre a = (Astre) o;
-        List<Astre> list = a.getListOfSatellites();
-        if(a.getListOfSatellites()!=null){
+    public boolean removeAstre(Astre a){
+        a.removeMySatellites();
+        listOfAstre.remove(a);
+        /*if(a.getListOfSatellites()!=null){
             for(int i=0;i<list.size();i++){
                 Astre astrecourant = list.get(i);
                 if(list.get(i).getListOfSatellites()!=null){
@@ -144,8 +144,10 @@ public class Model implements Serializable {
                 }
             }
         }
-        return listOfAstre.remove(o);
+        return listOfAstre.remove(o);*/
+        return true;
     }
+
 
 
     /**
