@@ -52,8 +52,5 @@ public class Etoile extends Astre {
         return posY;
     }
 
-    @Override
-    public boolean isSatellite() {
-        return false;
-    }
+
 }

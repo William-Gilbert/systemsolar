@@ -132,19 +132,17 @@ public class Model implements Serializable {
     }
 
 
+    /**
+     * Supprimer un astre racine du modèle, et tout ces satellites
+     *
+     * @param a
+     *      Astre à supprimer
+     * @return
+     *      Un booléen qui indique si l'astre a bien été supprimé
+     */
     public boolean removeAstre(Astre a){
         a.removeMySatellites();
         listOfAstre.remove(a);
-        /*if(a.getListOfSatellites()!=null){
-            for(int i=0;i<list.size();i++){
-                Astre astrecourant = list.get(i);
-                if(list.get(i).getListOfSatellites()!=null){
-                    removeAstre(astrecourant);
-                    astrecourant.getListOfSatellites().remove(i);
-                }
-            }
-        }
-        return listOfAstre.remove(o);*/
         return true;
     }
 

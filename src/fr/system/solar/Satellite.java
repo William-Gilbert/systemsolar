@@ -53,38 +53,6 @@ public class Satellite extends Astre {
     }
 
 
-    public Astre getAstreReferent() {
-        return astreReferent;
-    }
-
-    public void setAstreReferent(Astre astreReferent) {
-        this.astreReferent = astreReferent;
-    }
-
-    public int getDemiGrandAxe() {
-        return demiGrandAxe;
-    }
-
-    public void setDemiGrandAxe(int demiGrandAxe) {
-        this.demiGrandAxe = demiGrandAxe;
-    }
-
-    public int getDemiPetitAxe() {
-        return demiPetitAxe;
-    }
-
-    public void setDemiPetitAxe(int demiPetitAxe) {
-        this.demiPetitAxe = demiPetitAxe;
-    }
-
-    public int getPeriodeRotation() {
-        return periodeRotation;
-    }
-
-    public void setPeriodeRotation(int periodeRotation) {
-        this.periodeRotation = periodeRotation;
-    }
-
 
     /**
      * Récupère la position en x du satellite en fonction du temps système
@@ -104,9 +72,5 @@ public class Satellite extends Astre {
     @Override
     public int getPosY() {
         return (int)(demiPetitAxe * Math.sin(2*Math.PI*System.currentTimeMillis()/1000.0/periodeRotation) + astreReferent.getPosY());
-    }
-
-    public boolean isSatellite(){
-        return true;
     }
 }

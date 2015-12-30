@@ -12,7 +12,7 @@ public class AstreTestUnit extends TestCase{
 
     public void testNewAstreCorrectPath() throws ExceptionUnknowAstre{
         Astre etoile = new Etoile(0,"Sun","asteroide.png",200,200);
-        assertEquals("Sun", etoile.getNom());
+        assertEquals("Sun", etoile.toString());
         assertEquals("image/asteroide.png", etoile.getImage().toString());
     }
 

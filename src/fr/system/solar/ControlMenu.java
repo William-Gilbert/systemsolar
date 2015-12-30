@@ -17,11 +17,11 @@ import java.io.IOException;
 
 public class ControlMenu implements ActionListener {
     /**
-     *
+     *  Fenêtre principale de l'application
      */
     MainWindow mainWindow;
     /**
-     *
+     *  Modèle de donnée
      */
     Model model;
 
@@ -118,7 +118,7 @@ public class ControlMenu implements ActionListener {
         int size =  model.getListOfAstre().size();
         String[] label = new String[size];
         for(int i = 0 ; i < size ; i++){
-            label[i] = model.getAstre(i).getId() + " "+model.getAstre(i).getNom();
+            label[i] = model.getAstre(i).getId() + " "+model.getAstre(i).toString();
         }
         JOptionPane jop = new JOptionPane();
         String nom = (String)jop.showInputDialog(null,"Veuillez sélectionner l'étoile à enregistrer","Enregistrement",
@@ -138,7 +138,7 @@ public class ControlMenu implements ActionListener {
      */
     private boolean secureSave(Astre toSave) throws ArrayIndexOutOfBoundsException{
         JFileChooser choix = new JFileChooser("dat");
-        choix.setSelectedFile(new File(toSave.getNom().toLowerCase()));
+        choix.setSelectedFile(new File(toSave.toString().toLowerCase()));
 
         if(choix.showSaveDialog(mainWindow) == JFileChooser.APPROVE_OPTION){                          // validation du fichier
             String filename = choix.getSelectedFile().getAbsolutePath();

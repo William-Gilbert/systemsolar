@@ -6,13 +6,28 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * Created by coren_000 on 25/12/2015.
+ * Réagit aux actions de l'utilisateur
+ *
+ * @author Gilbert William, Tournoux Corentin
+ * @version 1.0
  */
+
 public class DelWindow extends JFrame {
+    /**
+     *  Bouton de validation de la suppression
+     */
     private JButton btDelValider;
+    /**
+     * JTree pour consulter les astres
+     */
     private JTree jtLocation;
 
 
+    /**
+     * Constructeur de la fenêtre
+     * @param m
+     *      Modèle de donnée
+     */
     public DelWindow(Model m){
         JPanel pan1 = new JPanel();
         JPanel pan2 = new JPanel();
@@ -52,6 +67,13 @@ public class DelWindow extends JFrame {
 
     }
 
+    /**
+     * Création de la JTree du système stellaire
+     * @param lista
+     *      Liste de satellite
+     * @return
+     *      Un JTree correspondant au modèle de donnée
+     */
     public JTree loadListOfAstre(List<Astre> lista){
         JTree tr;
         DefaultTreeModel dtm;
@@ -66,6 +88,16 @@ public class DelWindow extends JFrame {
         return tr;
     }
 
+    /**
+     * Parcours récursif des satellites et ajout de ceux si dans le JTree
+     *
+     * @param list
+     *      Liste de satellite
+     * @param dmtn
+     *      Noeud à développer
+     * @return
+     *      Objet pour créer un JTree
+     */
     public DefaultMutableTreeNode parcours(List<Astre> list,DefaultMutableTreeNode dmtn){
         for(int i=0;i<list.size();i++){
             DefaultMutableTreeNode astrecourant = new DefaultMutableTreeNode(list.get(i));
@@ -78,10 +110,20 @@ public class DelWindow extends JFrame {
     }
 
 
+    /**
+     * Récupère le bouton de validation de la suppression
+     * @return
+     *      Bouton de validation
+     */
     public JButton getBtDelete(){
         return btDelValider;
     }
 
+    /**
+     * Récupère le JTree de suppression
+     * @return
+     *      Le JTree de la suppression
+     */
     public JTree getJtLocation(){
         return jtLocation;
     }

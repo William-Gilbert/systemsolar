@@ -10,27 +10,58 @@ import java.io.IOException;
  * @author  Tournoux C
  */
 public class MainWindow extends JFrame {
+    /**
+     *  Barre de menu
+     */
     JMenuBar menuBar;
+    /**
+     *  Menu Fichier
+     */
     JMenu menuFichier;
+    /**
+     *  Menu Astre
+     */
     JMenu menuAstre;
+    /**
+     *  Option "ouvrir"
+     */
     JMenuItem itemOpen;
+    /**
+     * Option "sauvegarder"
+     */
     JMenuItem itemSave;
+    /**
+     *  Option "Quitter"
+     */
     JMenuItem itemExit;
+    /**
+     * Option "Nouvel Astre"
+     */
     JMenuItem itemAdd;
+    /**
+     * Option "Supprimer"
+     */
     JMenuItem itemSuppr;
-    ControlMenu controlmenu;
-    ControlDelWindow controlDelWindow;
+    /**
+     *
+     */
     private MyPanel pan_global;
 
 
+    /**
+     * Constructeur de la fenêtre principal
+     * @param m
+     *      Modèle de donnée
+     * @throws IOException
+     */
     public MainWindow(Model m) throws IOException{
-        setTitle("Système Solaire");
+        setTitle("Système Stellaire");
         setSize(1000, 700);
         setResizable(false);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container c = this.getContentPane();
-        controlmenu = new ControlMenu(this,m);
+        ControlMenu controlmenu = new ControlMenu(this,m);
         menuBar = new JMenuBar();
         menuFichier = new JMenu("Fichier");
         menuAstre = new JMenu("Astre");
@@ -63,6 +94,9 @@ public class MainWindow extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Remettre à jour l'UI
+     */
     public void display(){
         pan_global.repaint();
     }
