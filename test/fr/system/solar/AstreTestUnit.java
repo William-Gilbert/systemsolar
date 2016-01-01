@@ -1,6 +1,7 @@
 package fr.system.solar;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 /**
  * Exception indiquant une erreur dans la création ou l'appel d'un astre
@@ -10,12 +11,14 @@ import junit.framework.TestCase;
  */
 public class AstreTestUnit extends TestCase{
 
+    @Test
     public void testNewAstreCorrectPath() throws ExceptionUnknowAstre{
         Astre etoile = new Etoile(0,"Sun","asteroide.png",200,200);
         assertEquals("Sun", etoile.toString());
         assertEquals("image/asteroide.png", etoile.getImage().toString());
     }
 
+    @Test
     public void testNewAstreWrong(){
         try {
             Astre etoile = new Etoile(0, "Sun", "../../../ima.png",200,200);
@@ -27,6 +30,7 @@ public class AstreTestUnit extends TestCase{
 
     }
 
+    @Test
     public void testAddSattellite()throws ExceptionUnknowAstre {
         Etoile a = new Etoile(0,"Sun","soleil.png",450,375);
         a.addSatellite(0,"Terre","terre.png",300,200,20);
@@ -34,13 +38,14 @@ public class AstreTestUnit extends TestCase{
         assertEquals(0, a.getListOfSatellites().get(0).getId());
     }
 
-    public void testAddFakeSattellite() {
+    @Test(expected = ExceptionUnknowAstre.class)
+    public void testAddFakeSattellite(){
         Etoile a = null;
         try {
             a = new Etoile(0, "Sun", "soleil.png", 450, 375);
             a.addSatellite(0, "Terre", "../../terre.png", 300, 200, 20);
         } catch (ExceptionUnknowAstre exceptionUnknowAstre){
-            assertEquals(0, a.getListOfSatellites().size());
+
         }
 
     }
