@@ -115,7 +115,7 @@ public class AddWindow extends JFrame {
     private JPanel createPan1(){
         JPanel p1 = new JPanel();
         p1.setLayout(new FlowLayout());
-        JLabel name = new JLabel("nom de l'astre :");
+        JLabel name = new JLabel("Nom :");
         JTextField textName = new JTextField();
         textName.setColumns(10);
         tfs.add(textName);
