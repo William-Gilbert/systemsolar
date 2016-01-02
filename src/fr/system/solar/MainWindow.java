@@ -11,39 +11,28 @@ import java.io.IOException;
  */
 public class MainWindow extends JFrame {
     /**
-     *  Barre de menu
-     */
-    JMenuBar menuBar;
-    /**
-     *  Menu Fichier
-     */
-    JMenu menuFichier;
-    /**
-     *  Menu Astre
-     */
-    JMenu menuAstre;
-    /**
      *  Option "ouvrir"
      */
-    JMenuItem itemOpen;
+    private JMenuItem itemOpen;
     /**
      * Option "sauvegarder"
      */
-    JMenuItem itemSave;
+    private JMenuItem itemSave;
     /**
      *  Option "Quitter"
      */
-    JMenuItem itemExit;
+    private JMenuItem itemExit;
     /**
      * Option "Nouvel Astre"
      */
-    JMenuItem itemAdd;
+    private JMenuItem itemAdd;
     /**
      * Option "Supprimer"
      */
-    JMenuItem itemSuppr;
+    private JMenuItem itemSuppr;
+
     /**
-     *
+     *  Panel de la fenêtre
      */
     private MyPanel pan_global;
 
@@ -62,9 +51,9 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container c = this.getContentPane();
         ControlMenu controlmenu = new ControlMenu(this,m);
-        menuBar = new JMenuBar();
-        menuFichier = new JMenu("Fichier");
-        menuAstre = new JMenu("Astre");
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menuFichier = new JMenu("Fichier");
+        JMenu menuAstre = new JMenu("Astre");
         itemOpen = new JMenuItem("Ouvrir");
         itemOpen.addActionListener(controlmenu);
         itemSave = new JMenuItem("Enregistrer");
@@ -99,5 +88,50 @@ public class MainWindow extends JFrame {
      */
     public void display(){
         pan_global.repaint();
+    }
+
+    /**
+     * Récupère l'item "Ouvrir"
+     * @return
+     *      L'objet "Ouvrir" du JMenu
+     */
+    public JMenuItem getItemOpen() {
+        return itemOpen;
+    }
+
+    /**
+     * Récupère l'item "Sauvegarder"
+     * @return
+     *      L'objet "Sauvegarder" du JMenu
+     */
+    public JMenuItem getItemSave() {
+        return itemSave;
+    }
+
+    /**
+     * Récupère l'item "Quitter"
+     * @return
+     *      L'objet "Quitter" du JMenu
+     */
+    public JMenuItem getItemExit() {
+        return itemExit;
+    }
+
+    /**
+     * Récupère l'item "Ajouter"
+     * @return
+     *      L'objet "Ajouter" du JMenu
+     */
+    public JMenuItem getItemAdd() {
+        return itemAdd;
+    }
+
+    /**
+     * Récupère l'item "Supprimer"
+     * @return
+     *      L'objet "Supprimer" du JMenu
+     */
+    public JMenuItem getItemSuppr() {
+        return itemSuppr;
     }
 }

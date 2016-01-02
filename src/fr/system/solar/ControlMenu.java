@@ -40,19 +40,19 @@ public class ControlMenu implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent a) {
-        if(a.getSource() == mainWindow.itemAdd){
+        if(a.getSource() == mainWindow.getItemAdd()){
             add();
         }
-        else if(a.getSource() == mainWindow.itemSuppr){
+        else if(a.getSource() == mainWindow.getItemSuppr()){
             deleteAstre();
         }
-        else if(a.getSource() == mainWindow.itemSave){
+        else if(a.getSource() == mainWindow.getItemSave()){
             sauvegarde();
         }
-        else if(a.getSource() == mainWindow.itemOpen){
+        else if(a.getSource() == mainWindow.getItemOpen()){
             open();
         }
-        else if(a.getSource() == mainWindow.itemExit){
+        else if(a.getSource() == mainWindow.getItemExit()){
             System.exit(0);
         }
     }
